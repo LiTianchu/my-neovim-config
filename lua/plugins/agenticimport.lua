@@ -12,7 +12,7 @@ return {
 		instructions_file = "avante.md",
 		-- for example
 		-- provider = "copilot"
-		provider = "codex",
+		provider = "copilot",
 		behaviour = {
 			auto_suggestions = false,
 			auto_set_highlight_group = true,

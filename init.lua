@@ -87,6 +87,10 @@ require("lazy").setup({
 					"yaml",
 					"ocaml",
 					"prisma",
+					"go",
+					"gomod",
+					"gosum",
+					"gotmpl",
 				}
 
 				require("nvim-treesitter").setup({
@@ -394,9 +398,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
--- Auto open avante on startup
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		require("avante.api").ask()
-	end,
-})
+-- -- Auto open avante on startup
+-- vim.api.nvim_create_autocmd("VimEnter", {
+-- 	callback = function()
+-- 		require("avante.api").ask()
+-- 	end,
+-- })
