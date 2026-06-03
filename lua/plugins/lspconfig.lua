@@ -38,7 +38,7 @@ require("mason-null-ls").setup({
 		"sql_formatter", -- SQL formatter
 		"yamlfmt", -- YAML formatter
 		"gdtoolkit", -- Godot formatter
-		"goimports", -- Go formatter and import organizer
+		"gofumpt", -- Go formatter
 		-- "csharpier", -- C# formatter (use omnisharp lsp instead)
 		-- "ocamlformat", -- OCaml formatter (use opam installed version)
 	},
@@ -256,6 +256,7 @@ vim.lsp.config("gopls", {
 				shadow = true,
 			},
 			staticcheck = true,
+			gofumpt = true, -- stricter formatting (needs gofumpt installed)
 		},
 	},
 })
@@ -294,7 +295,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.sql_formatter,
 		null_ls.builtins.formatting.yamlfmt,
 		null_ls.builtins.formatting.gdformat,
-		null_ls.builtins.formatting.goimports,
+		null_ls.builtins.formatting.gofumpt,
 	},
 })
 
