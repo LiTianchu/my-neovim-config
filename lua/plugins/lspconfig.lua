@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"eslint", -- ESLint
 		"bashls", -- Bash
 		"prismals", -- Prisma
+		"gopls", -- Go
 		-- "ocamllsp", -- OCaml (handled seprately to use opam)
 	},
 })
@@ -37,6 +38,7 @@ require("mason-null-ls").setup({
 		"sql_formatter", -- SQL formatter
 		"yamlfmt", -- YAML formatter
 		"gdtoolkit", -- Godot formatter
+		"goimports", -- Go formatter and import organizer
 		-- "csharpier", -- C# formatter (use omnisharp lsp instead)
 		-- "ocamlformat", -- OCaml formatter (use opam installed version)
 	},
@@ -245,6 +247,20 @@ local gdscript_config = {
 vim.lsp.config("gdscript", gdscript_config)
 vim.lsp.enable("gdscript")
 
+vim.lsp.config("gopls", {
+	capabilities = capabilities,
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+				shadow = true,
+			},
+			staticcheck = true,
+		},
+	},
+})
+vim.lsp.enable("gopls")
+
 -- Linter and Formatter settings
 local null_ls = require("null-ls")
 null_ls.setup({
@@ -278,6 +294,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.sql_formatter,
 		null_ls.builtins.formatting.yamlfmt,
 		null_ls.builtins.formatting.gdformat,
+		null_ls.builtins.formatting.goimports,
 	},
 })
 
@@ -304,7 +321,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		"*.graphql",
 		"*.gql",
 
-		-- Systems
+		-- Systems / Backend
 		"*.c",
 		"*.cpp",
 		"*.h",
@@ -314,6 +331,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		"*.java",
 		"*.cs",
 		"*.py",
+		"*.go",
 
 		-- Scripting
 		"*.lua",
