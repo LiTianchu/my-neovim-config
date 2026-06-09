@@ -315,6 +315,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		"*.svelte",
 
 		-- Data
+		"*.sql",
 		"*.json",
 		"*.jsonc",
 		"*.yaml",
@@ -341,9 +342,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 		-- Documentation
 		"*.md",
-		"*.sql",
 
-		-- OCaml
+		-- Functional
 		"*.ml",
 		"*.mli",
 
