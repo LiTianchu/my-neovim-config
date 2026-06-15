@@ -61,6 +61,23 @@ require("lazy").setup({
 			lazy = false,
 			build = ":TSUpdate",
 			config = function()
+				-- Register the custom RON parser BEFORE setup
+				vim.api.nvim_create_autocmd("User", {
+					pattern = "TSUpdate",
+					callback = function()
+						require("nvim-treesitter.parsers").ron = {
+							install_info = {
+								url = "https://github.com/zee-editor/tree-sitter-ron",
+								branch = "main",
+								queries = "queries", -- pull queries from this dir in the repo
+							},
+						}
+					end,
+				})
+
+				-- Filetype detection for .ron files
+				vim.filetype.add({ extension = { ron = "ron" } })
+
 				local ensure_installed = {
 					"lua",
 					"javascript",
@@ -91,6 +108,7 @@ require("lazy").setup({
 					"gomod",
 					"gosum",
 					"gotmpl",
+					"ron",
 				}
 
 				require("nvim-treesitter").setup({
