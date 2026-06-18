@@ -262,6 +262,23 @@ vim.lsp.config("gopls", {
 })
 vim.lsp.enable("gopls")
 
+prettierFormattable = {
+	"javascript",
+	"javascriptreact",
+	"typescript",
+	"typescriptreact",
+	"vue",
+	"css",
+	"scss",
+	"less",
+	"html",
+	"json",
+	"jsonc",
+	"graphql",
+	"svelte",
+	"handlebars",
+}
+
 -- Linter and Formatter settings
 local null_ls = require("null-ls")
 null_ls.setup({
@@ -270,22 +287,7 @@ null_ls.setup({
 		null_ls.builtins.completion.spell, -- spell checking
 		-- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
 		null_ls.builtins.formatting.prettierd.with({
-			filetypes = {
-				"javascript",
-				"javascriptreact",
-				"typescript",
-				"typescriptreact",
-				"vue",
-				"css",
-				"scss",
-				"less",
-				"html",
-				"json",
-				"jsonc",
-				"graphql",
-				"svelte",
-				"handlebars",
-			},
+			filetypes = prettierFormattable,
 		}), -- JS/TS formatter
 		null_ls.builtins.formatting.black.with({
 			extra_args = { "--fast" },
@@ -297,6 +299,16 @@ null_ls.setup({
 		null_ls.builtins.formatting.gdformat,
 		null_ls.builtins.formatting.gofumpt,
 	},
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = prettierFormattable,
+	callback = function()
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+		vim.bo.softtabstop = 2
+		vim.bo.expandtab = true
+	end,
 })
 
 -- Format on save for multiple languages

@@ -3,7 +3,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.o.titlestring = "%{getcwd()}"
 vim.o.title = true
-
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 vim.o.splitbelow = true
 
 require("misc.options") -- general settings
