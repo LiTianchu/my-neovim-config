@@ -262,7 +262,7 @@ vim.lsp.config("gopls", {
 })
 vim.lsp.enable("gopls")
 
-prettierFormattable = {
+local prettierFormattable = {
 	"javascript",
 	"javascriptreact",
 	"typescript",
