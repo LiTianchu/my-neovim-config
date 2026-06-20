@@ -238,9 +238,9 @@ end
 local gdscript_config = {
 	capabilities = capabilities,
 	cmd = godot_lsp_cmd(),
-	filetypes = { "gdscript", "gd" },
+	filetypes = { "gdscript" },
 	root_dir = function(bufnr, cb)
-		cb(vim.fs.root(bufnr, { "project.godot", ".git" }))
+		cb(vim.fs.root(bufnr, { "project.godot" }))
 	end,
 }
 
@@ -297,6 +297,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.sql_formatter,
 		null_ls.builtins.formatting.yamlfmt,
 		null_ls.builtins.formatting.gdformat,
+		null_ls.builtins.diagnostics.gdlint,
 		null_ls.builtins.formatting.gofumpt,
 	},
 })
