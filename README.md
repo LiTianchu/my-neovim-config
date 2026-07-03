@@ -26,4 +26,16 @@ Put into `~/.config/nvim/`
 13. `ctrl up/down/left/right` - resize current pane
 14. `alt j/k (in visual mode)` - grab line and move down/up
 
-
+#### Language Support   
+- C/C++
+- Java
+- C#
+- JavaScript/TypeScript with React and Svelte support
+- Rust
+- Go
+- Python
+- HTML+CSS with Tailwind
+- Lua
+- Bash
+- GDScript
+- ...
