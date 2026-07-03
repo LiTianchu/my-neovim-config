@@ -1,4 +1,4 @@
-# Neovim Config Files
+# My Neovim Config Files
 #### How to use  
 Put into `~/.config/nvim/` 
  
