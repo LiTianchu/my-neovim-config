@@ -22,8 +22,8 @@ require("mason-lspconfig").setup({
 		"bashls", -- Bash
 		"prismals", -- Prisma
 		"gopls", -- Go
-		"hls", -- Haskell
-		-- "ocamllsp", -- OCaml (handled seprately to use opam)
+		"hls", -- Haskell (need to use install ghcup on the system first if not will fail to install)
+		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
 })
 
