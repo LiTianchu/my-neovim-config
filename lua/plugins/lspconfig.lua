@@ -262,6 +262,14 @@ vim.lsp.config("gopls", {
 })
 vim.lsp.enable("gopls")
 
+-- Haskell
+vim.lsp.config("hls", {
+	capabilities = capabilities,
+	cmd = { "haskell-language-server-wrapper", "--lsp" },
+	filetypes = { "haskell", "lhaskell" },
+})
+vim.lsp.enable("hls")
+
 local prettierFormattable = {
 	"javascript",
 	"javascriptreact",

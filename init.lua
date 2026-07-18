@@ -110,6 +110,9 @@ require("lazy").setup({
 					"gosum",
 					"gotmpl",
 					"ron",
+					"haskell",
+					"vim",
+					"vimdoc",
 				}
 
 				require("nvim-treesitter").setup({
