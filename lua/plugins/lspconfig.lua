@@ -22,6 +22,7 @@ require("mason-lspconfig").setup({
 		"bashls", -- Bash
 		"prismals", -- Prisma
 		"gopls", -- Go
+		"hls", -- Haskell
 		-- "ocamllsp", -- OCaml (handled seprately to use opam)
 	},
 })
@@ -367,6 +368,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		-- Functional
 		"*.ml",
 		"*.mli",
+		"*.hs",
+		"*.lhs",
 
 		-- Game Dev
 		"*.gd",

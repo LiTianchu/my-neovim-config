@@ -1,16 +1,21 @@
 # My Neovim Config Files
+
 #### How to use  
-Put into `~/.config/nvim/` 
- 
-#### Demo:  
+
+Put into `~/.config/nvim/`
+
+#### Demo  
+
 <img src="https://github.com/LiTianchu/my-neovim-config/blob/main/assets/demo.png" width=720 alt="Demo" />  
 
 #### Useful Commands  
+
 1. Lazy - opens up the Lazy package manager panel
 2. TSUpdate/TSInstall - update/install treesitter parsers
 3. Mason - opens up the LSP manager panel
 
 #### Useful Keybinds  
+
 1. `g d` - go to definition
 2. `f k` - show error message
 3. `j k (in insert mode)` - go back to normal mode (same as ESC)
@@ -26,7 +31,8 @@ Put into `~/.config/nvim/`
 13. `ctrl up/down/left/right` - resize current pane
 14. `alt j/k (in visual mode)` - grab line and move down/up
 
-#### Language Support   
+#### Language Support
+
 - C/C++
 - Java
 - C#
@@ -37,5 +43,6 @@ Put into `~/.config/nvim/`
 - HTML+CSS with Tailwind
 - Lua
 - Bash
+- Haskell
 - GDScript
 - ...
