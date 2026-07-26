@@ -9,6 +9,7 @@ require("mason-null-ls").setup({
 		"yamlfmt", -- YAML formatter
 		"gdtoolkit", -- Godot formatter
 		"gofumpt", -- Go formatter
+		"shfmt", -- Shell formatter
 		-- "ocamlformat", -- OCaml formatter (use opam installed version)
 	},
 })
