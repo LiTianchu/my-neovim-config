@@ -11,6 +11,9 @@ return {
 			local dap = require("dap")
 			local dapui = require("dapui")
 
+			-- Currently only supports GDScript debugging via Godot Engine's DAP server
+			-- Add more if need other debuggers
+
 			--  Godot DAP adapter (connects to port 6006)
 			--  Godot must be running with DAP enabled
 			dap.adapters.godot = {

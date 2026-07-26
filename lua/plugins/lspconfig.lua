@@ -22,28 +22,11 @@ require("mason-lspconfig").setup({
 		"bashls", -- Bash
 		"prismals", -- Prisma
 		"gopls", -- Go
-		"hls", -- Haskell (need to use install ghcup on the system first if not will fail to install)
+		"hls", -- Haskell (need to install ghcup on the system first if not will fail to install)
 		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
 })
 
-require("mason-null-ls").setup({
-	ensure_installed = {
-		"stylua", -- Lua formatter
-		-- "eslint_d", -- JS/TS linter use eslint lsp instead
-		"prettierd", -- JS/TS formatter
-		"black", -- Python formatter
-		"isort", -- Python import sorter
-		-- "clang_format", -- C/C++ formatter (use clangd lsp instead)
-		"markdownlint", -- Markdown linter
-		"sql_formatter", -- SQL formatter
-		"yamlfmt", -- YAML formatter
-		"gdtoolkit", -- Godot formatter
-		"gofumpt", -- Go formatter
-		-- "csharpier", -- C# formatter (use omnisharp lsp instead)
-		-- "ocamlformat", -- OCaml formatter (use opam installed version)
-	},
-})
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- LSP settings for various languages
@@ -217,16 +200,19 @@ vim.lsp.config("bashls", {
 	capabilities = capabilities,
 })
 vim.lsp.enable("bashls")
+
 vim.lsp.config("ocaml-lsp", {
-	-- It forces the command to be run through OPAM.
-	-- OPAM will execute 'ocamllsp' using the environment of the *active* switch,
-	-- which should be your OCaml 4.14 switch where you installed the compatible LSP.
 	cmd = { "opam", "exec", "--", "ocamllsp" },
 	filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
 	capabilities = capabilities,
 })
 
 vim.lsp.enable("ocaml-lsp")
+
+vim.lsp.config("prismals", {
+	capabilities = capabilities,
+})
+vim.lsp.enable("prismals")
 
 local function godot_lsp_cmd()
 	if vim.fn.has("win32") == 1 then
@@ -270,111 +256,3 @@ vim.lsp.config("hls", {
 	filetypes = { "haskell", "lhaskell" },
 })
 vim.lsp.enable("hls")
-
-local prettierFormattable = {
-	"javascript",
-	"javascriptreact",
-	"typescript",
-	"typescriptreact",
-	"vue",
-	"css",
-	"scss",
-	"less",
-	"html",
-	"json",
-	"jsonc",
-	"graphql",
-	"svelte",
-	"handlebars",
-}
-
--- Linter and Formatter settings
-local null_ls = require("null-ls")
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.stylua, -- Lua formatter
-		null_ls.builtins.completion.spell, -- spell checking
-		-- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
-		null_ls.builtins.formatting.prettierd.with({
-			filetypes = prettierFormattable,
-		}), -- JS/TS formatter
-		null_ls.builtins.formatting.black.with({
-			extra_args = { "--fast" },
-		}),
-		null_ls.builtins.formatting.isort,
-		null_ls.builtins.formatting.markdownlint,
-		null_ls.builtins.formatting.sql_formatter,
-		null_ls.builtins.formatting.yamlfmt,
-		null_ls.builtins.formatting.gdformat,
-		null_ls.builtins.diagnostics.gdlint,
-		null_ls.builtins.formatting.gofumpt,
-	},
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = prettierFormattable,
-	callback = function()
-		vim.bo.tabstop = 2
-		vim.bo.shiftwidth = 2
-		vim.bo.softtabstop = 2
-		vim.bo.expandtab = true
-	end,
-})
-
--- Format on save for multiple languages
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = {
-		-- Web
-		"*.ts",
-		"*.tsx",
-		"*.js",
-		"*.jsx",
-		"*.vue",
-		"*.html",
-		"*.css",
-		"*.scss",
-		"*.less",
-		"*.svelte",
-
-		-- Data
-		"*.sql",
-		"*.json",
-		"*.jsonc",
-		"*.yaml",
-		"*.yml",
-		"*.graphql",
-		"*.gql",
-
-		-- Systems / Backend
-		"*.c",
-		"*.cpp",
-		"*.h",
-		"*.hpp",
-		"*.rs",
-		"*.go",
-		"*.java",
-		"*.cs",
-		"*.py",
-		"*.go",
-
-		-- Scripting
-		"*.lua",
-		"*.sh",
-		"*.bash",
-
-		-- Documentation
-		"*.md",
-
-		-- Functional
-		"*.ml",
-		"*.mli",
-		"*.hs",
-		"*.lhs",
-
-		-- Game Dev
-		"*.gd",
-	},
-	callback = function()
-		vim.lsp.buf.format({ async = false })
-	end,
-})

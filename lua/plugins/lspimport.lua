@@ -5,18 +5,6 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 	},
-	{
-		"nvimtools/none-ls.nvim",
-		dependencies = { "nvimtools/none-ls-extras.nvim" },
-	},
-	{
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"nvimtools/none-ls.nvim",
-		},
-	},
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "rafamadriz/friendly-snippets" },
 	{

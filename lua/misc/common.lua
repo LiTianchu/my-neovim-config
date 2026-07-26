@@ -1,3 +1,12 @@
+-- Set mapleader before loading any plugins or settings
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+vim.o.titlestring = "%{getcwd()}"
+vim.o.title = true
+vim.o.splitbelow = true
+
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 -- Normal Mode
 -- Cusor line
 vim.opt.cursorline = true
@@ -34,7 +43,7 @@ vim.opt.tabstop = 4 -- tab display width
 
 -- Scroll offset
 if vim.g.neovide then
-    vim.o.scrolloff = 0
+	vim.o.scrolloff = 0
 else
-    vim.o.scrolloff = 5
+	vim.o.scrolloff = 5
 end
