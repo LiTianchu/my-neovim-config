@@ -23,9 +23,8 @@ return {
 
 			cmp.setup({
 				snippet = {
-					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+						require("luasnip").lsp_expand(args.body)
 					end,
 				},
 				window = {
@@ -42,17 +41,13 @@ return {
 				sources = cmp.config.sources({
 					{
 						name = "nvim_lsp",
-						entry_filter = function(entry, ctx)
+						entry_filter = function(entry, _)
 							return entry:get_kind() ~= cmp.lsp.CompletionItemKind.Text -- Filter out 'Text' kind items
 						end,
 					},
-					-- { name = 'vsnip' }, -- For vsnip users.
 					{ name = "luasnip" }, -- For luasnip users.
-					-- { name = 'ultisnips' }, -- For ultisnips users.
-					-- { name = 'snippy' }, -- For snippy users.
 				}, {
 					{ name = "buffer" },
-					-- { name = "html-css" },
 				}),
 				formatting = {
 					format = function(entry, vim_item)

@@ -7,6 +7,7 @@ vim.o.splitbelow = true
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
+
 -- Normal Mode
 -- Cusor line
 vim.opt.cursorline = true

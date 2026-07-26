@@ -4,7 +4,6 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		-- Register the custom RON parser BEFORE setup
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "TSUpdate",
 			callback = function()
@@ -18,10 +17,8 @@ return {
 			end,
 		})
 
-		-- Filetype detection for .ron files
+		-- addtional filetypes
 		vim.filetype.add({ extension = { ron = "ron" } })
-
-		-- Make sure .prisma files are detected correctly
 		vim.filetype.add({
 			extension = {
 				prisma = "prisma",

@@ -36,7 +36,7 @@ require("lazy").setup({
 	checker = { enabled = true },
 })
 
-require("themes.coloroverride")
+require("themes.themeoverride")
 
 require("plugins.uiconfig")
 
