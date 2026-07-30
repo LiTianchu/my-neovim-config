@@ -23,6 +23,7 @@ require("mason-lspconfig").setup({
 		"prismals", -- Prisma
 		"gopls", -- Go
 		"hls", -- Haskell (need to install ghcup on the system first if not will fail to install)
+		"ols",
 		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
 })
@@ -256,3 +257,9 @@ vim.lsp.config("hls", {
 	filetypes = { "haskell", "lhaskell" },
 })
 vim.lsp.enable("hls")
+
+-- Odin
+vim.lsp.config("ols", {
+	capabilities = capabilities,
+})
+vim.lsp.enable("ols")

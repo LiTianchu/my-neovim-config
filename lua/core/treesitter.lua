@@ -59,6 +59,7 @@ return {
 			"haskell",
 			"vim",
 			"vimdoc",
+			"odin",
 		}
 
 		require("nvim-treesitter").setup({
