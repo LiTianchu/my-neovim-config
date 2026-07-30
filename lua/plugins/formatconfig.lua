@@ -114,6 +114,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 		-- Game Dev
 		"*.gd",
+		"*.odin",
 	},
 	callback = function()
 		vim.lsp.buf.format({ async = false })
