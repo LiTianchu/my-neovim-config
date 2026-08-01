@@ -24,6 +24,7 @@ require("mason-lspconfig").setup({
 		"gopls", -- Go
 		"hls", -- Haskell (need to install ghcup on the system first if not will fail to install)
 		"ols",
+		"slangd",
 		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
 })
@@ -263,3 +264,9 @@ vim.lsp.config("ols", {
 	capabilities = capabilities,
 })
 vim.lsp.enable("ols")
+
+vim.lsp.config("slangd", {
+	capabilities = capabilities,
+})
+
+vim.lsp.enable("slangd")

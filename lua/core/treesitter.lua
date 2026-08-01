@@ -60,6 +60,7 @@ return {
 			"vim",
 			"vimdoc",
 			"odin",
+			"slang",
 		}
 
 		require("nvim-treesitter").setup({
