@@ -26,7 +26,7 @@ require("mason-lspconfig").setup({
 		"ols",
 		"slangd",
 		"wgsl_analyzer", -- WGSL
-		"glslls", -- GLSL
+		"glsl_analyzer", -- GLSL
 		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
 })
@@ -278,8 +278,8 @@ vim.lsp.config("wgsl_analyzer", {
 })
 vim.lsp.enable("wgsl_analyzer")
 
-vim.lsp.config("glslls", {
+vim.lsp.config("glsl_analyzer", {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable("glslls")
+vim.lsp.enable("glsl_analyzer")

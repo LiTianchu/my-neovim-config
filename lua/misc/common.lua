@@ -42,6 +42,9 @@ vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.shiftwidth = 4 -- indent width (4 spaces)
 vim.opt.tabstop = 4 -- tab display width
 
+-- CMake policy version
+vim.env.CMAKE_POLICY_VERSION_MINIMUM = "3.5"
+
 -- Scroll offset
 if vim.g.neovide then
 	vim.o.scrolloff = 0
