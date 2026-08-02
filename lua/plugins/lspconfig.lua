@@ -29,6 +29,9 @@ require("mason-lspconfig").setup({
 		"glsl_analyzer", -- GLSL
 		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
+	handlers = {
+		function() end, -- no-op default handler: prevents auto-setup of all servers
+	},
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()

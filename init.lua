@@ -37,6 +37,7 @@ require("lazy").setup({
 })
 
 require("themes.themeoverride")
+require("themes.iconoverride")
 
 require("plugins.uiconfig")
 
