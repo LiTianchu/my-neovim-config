@@ -47,6 +47,8 @@ return {
 			"gdshader",
 			"hlsl",
 			"glsl",
+			"wgsl",
+			"slang",
 			"toml",
 			"yaml",
 			"ocaml",
@@ -60,7 +62,6 @@ return {
 			"vim",
 			"vimdoc",
 			"odin",
-			"slang",
 		}
 
 		require("nvim-treesitter").setup({

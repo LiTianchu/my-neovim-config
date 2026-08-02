@@ -25,6 +25,8 @@ require("mason-lspconfig").setup({
 		"hls", -- Haskell (need to install ghcup on the system first if not will fail to install)
 		"ols",
 		"slangd",
+		"wgsl_analyzer", -- WGSL
+		"glslls", -- GLSL
 		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
 })
@@ -270,3 +272,14 @@ vim.lsp.config("slangd", {
 })
 
 vim.lsp.enable("slangd")
+
+vim.lsp.config("wgsl_analyzer", {
+	capabilities = capabilities,
+})
+vim.lsp.enable("wgsl_analyzer")
+
+vim.lsp.config("glslls", {
+	capabilities = capabilities,
+})
+
+vim.lsp.enable("glslls")
