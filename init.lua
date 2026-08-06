@@ -28,7 +28,7 @@ require("lazy").setup({
 		require("plugins.editimport"),
 		require("plugins.copilotimport"),
 		require("plugins.lspimport"),
-		require("plugins.formatimport"),
+		require("plugins.lsptoolimport"),
 		require("agent.avante"),
 		require("dap.debugger"),
 	},
@@ -45,7 +45,7 @@ require("plugins.copilotconfig")
 
 require("plugins.lspconfig")
 
-require("plugins.formatconfig")
+require("plugins.lsptoolconfig")
 
 require("plugins.editconfig")
 

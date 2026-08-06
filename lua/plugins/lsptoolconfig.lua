@@ -53,6 +53,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.gofumpt,
 	},
 })
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = prettierFormattable,
 	callback = function()
