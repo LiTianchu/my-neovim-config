@@ -25,6 +25,14 @@ return {
 			},
 		})
 
+		-- prolog files sometimes get misidentified as Interactive Data Language(idlang) which also uses the .pro extension
+		-- so need to force neovim to read .pro as prolog files
+		vim.filetype.add({
+			extension = {
+				pro = "prolog",
+			},
+		})
+
 		local ensure_installed = {
 			"lua",
 			"javascript",
