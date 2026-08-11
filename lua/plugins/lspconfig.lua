@@ -287,21 +287,25 @@ vim.lsp.config("glsl_analyzer", {
 
 vim.lsp.enable("glsl_analyzer")
 
--- local prolog_config = {
--- 	capabilities = capabilities,
--- 	cmd = {
--- 		"swipl",
--- 		"-g",
--- 		"use_module(library(lsp_server))",
--- 		"-g",
--- 		"lsp_server:main",
--- 		"-t",
--- 		"halt",
--- 		"--",
--- 		"stdio",
--- 	},
--- 	root_markers = { ".git" },
--- 	filetypes = { "prolog" },
--- }
--- vim.lsp.config("prolog", prolog_config)
--- vim.lsp.enable("prolog")
+-- Prolog
+-- Need to install SWI-Prolog 10.0 or higher https://www.swi-prolog.org/build/PPA.html
+-- Then install the LSP server using the following command in SWI-Prolog:
+-- swipl pack install lsp_server
+local prolog_config = {
+	capabilities = capabilities,
+	cmd = {
+		"swipl",
+		"-g",
+		"use_module(library(lsp_server))",
+		"-g",
+		"lsp_server:main",
+		"-t",
+		"halt",
+		"--",
+		"stdio",
+	},
+	root_markers = { ".git" },
+	filetypes = { "prolog" },
+}
+vim.lsp.config("prolog", prolog_config)
+vim.lsp.enable("prolog")
