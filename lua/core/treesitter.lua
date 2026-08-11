@@ -62,6 +62,7 @@ return {
 			"vim",
 			"vimdoc",
 			"odin",
+			"prolog",
 		}
 
 		require("nvim-treesitter").setup({
