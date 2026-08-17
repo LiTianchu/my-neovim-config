@@ -98,6 +98,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		"*.cs",
 		"*.py",
 		"*.go",
+		"*.zig",
 
 		-- Scripting
 		"*.lua",

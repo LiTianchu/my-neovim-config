@@ -70,6 +70,7 @@ return {
 			"vim",
 			"vimdoc",
 			"odin",
+			"zig",
 		}
 
 		require("nvim-treesitter").setup({

@@ -27,6 +27,7 @@ require("mason-lspconfig").setup({
 		"slangd",
 		"wgsl_analyzer", -- WGSL
 		"glsl_analyzer", -- GLSL
+		"zls",
 		-- "ocamllsp", -- OCaml (need to install opam handled seprately to use opam)
 	},
 	handlers = {
@@ -310,3 +311,8 @@ local prolog_config = {
 }
 vim.lsp.config("prolog", prolog_config)
 vim.lsp.enable("prolog")
+
+vim.lsp.config("zls", {
+	capabilities = capabilities,
+})
+vim.lsp.enable("zls")
